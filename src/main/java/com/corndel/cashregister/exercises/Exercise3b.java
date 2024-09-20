@@ -1,5 +1,6 @@
 package com.corndel.cashregister.exercises;
 
+import com.corndel.cashregister.exercises.models.Recipe;
 import com.corndel.cashregister.exercises.models.RecipeBook;
 
 public class Exercise3b {
@@ -9,6 +10,13 @@ public class Exercise3b {
    */
   public static int countServings(RecipeBook recipeBook) {
     // TODO
-    return 0;
+
+    int sum = 0;
+
+    for (Recipe recipe : recipeBook.getRecipes()) {
+      sum += recipe.getServings();
+    }
+
+    return sum;
   }
 }

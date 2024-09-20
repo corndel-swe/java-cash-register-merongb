@@ -18,6 +18,11 @@ public class Exercise1a {
    */
   public static String getSummary(Recipe recipe) {
     // TODO
-    return null;
+    String recipeName = recipe.getName();
+    int numberOfIngredients = recipe.getIngredients().size();
+    int servings = recipe.getServings();
+
+    return String.format("%s has %d ingredients and serves %d people", recipeName, numberOfIngredients, servings);
+
   }
 }
