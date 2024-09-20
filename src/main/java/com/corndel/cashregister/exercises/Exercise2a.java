@@ -9,6 +9,14 @@ public class Exercise2a {
    */
   public static int countVeggies(List<Recipe> recipes) {
     // TODO
-    return 0;
+
+    int sum = 0;
+    for (Recipe recipe : recipes) {
+      if (recipe.isVegetarian()) {
+        sum++;
+      }
+    }
+
+    return sum;
   }
 }

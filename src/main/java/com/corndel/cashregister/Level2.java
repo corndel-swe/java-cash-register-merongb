@@ -15,7 +15,13 @@ public class Level2 {
    */
   public static int countCoins(List<Item> drawer) {
     // TODO
-    return 0;
+    int sum = 0;
+    for (Item item : drawer) {
+      if (item.getValue() < 100) {
+        sum += item.getQuantity();
+      }
+    }
+    return sum;
   }
 
   /**
@@ -23,6 +29,12 @@ public class Level2 {
    */
   public static int countNotes(List<Item> drawer) {
     // TODO
-    return 0;
+    int sum = 0;
+    for (Item item : drawer) {
+      if (item.getValue() >= 100) {
+        sum += item.getQuantity();
+      }
+    }
+    return sum;
   }
 }

@@ -12,6 +12,9 @@ public class Exercise3a {
    */
   public static Recipe lastRecipe(RecipeBook recipeBook) {
     // TODO
-    return null;
+    if (recipeBook.getRecipes().isEmpty()) {
+      return null;
+    }
+    return recipeBook.getRecipes().getLast();
   }
 }
