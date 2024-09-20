@@ -1,6 +1,9 @@
 package com.corndel.cashregister;
 
 import com.corndel.cashregister.models.Item;
+
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Level5 {
@@ -28,7 +31,34 @@ public class Level5 {
    */
   public static List<Item> transaction(int cost, List<Item> paid, List<Item> drawer) {
     // TODO
-    return null;
+
+    int totalPaid = 0;
+    for (Item paidItem : paid) {
+      for (Item drawerItem : drawer) {
+        if (paidItem.getValue() == drawerItem.getValue()) {
+          totalPaid += paidItem.getValue() * paidItem.getQuantity();
+          drawerItem.setQuantity(drawerItem.getQuantity() + paidItem.getQuantity());
+        }
+      }
+
+    }
+int changeOwed = totalPaid - cost;
+
+    for (Item item : drawer) {
+      int itemValue = item.getValue();
+      int itemQuantity = item.getQuantity();
+
+      while (itemQuantity > 0 && changeOwed >= itemValue) {
+        changeOwed -= itemValue;
+        itemQuantity--;
+      }
+      item.setQuantity(itemQuantity);
+      if (changeOwed == 0) {
+        break;
+      }
+    }
+    return drawer;
+
   }
 
 }
